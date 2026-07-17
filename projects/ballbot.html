@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ballbot | Zoe Fisch</title>
+    <meta
+      name="description"
+      content="Ballbot project case study by Zoe Fisch: feedback-controlled robot that balances on a basketball."
+    />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="../index.html" aria-label="Zoe Fisch home">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="8" y="10" width="32" height="22" rx="3" stroke="currentColor" stroke-width="3" />
+            <path d="M18 39H30" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M24 32V39" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M14 16H34" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.55" />
+          </svg>
+          <span>Zoe Fisch</span>
+        </a>
+        <div class="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a class="mobile-keep" href="mailto:zoefisch@umich.edu">Contact</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme"></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="container page-hero">
+        <div>
+          <span class="eyebrow">Project page · Robotics</span>
+          <h1>Ballbot</h1>
+          <p>
+            A feedback-controlled robot that balances on a basketball using sensor feedback, Python control logic,
+            rapid prototyping, and a multidisciplinary chassis design.
+          </p>
+          <div class="button-row">
+            <a
+              class="button button-primary"
+              href="https://docs.google.com/document/d/1qgX4NlNa8jGUAAXRf7Jbf3NqZIeP_G6Xsi2c7W8MoPc/edit?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              >Open report</a
+            >
+            <a class="button button-secondary" href="../index.html#projects">Back to projects</a>
+          </div>
+        </div>
+        <aside class="project-meta" aria-label="Project metadata">
+          <div class="meta-row"><span>Role</span><strong>Controls Engineer</strong></div>
+          <div class="meta-row"><span>Mode</span><strong>Class Project</strong></div>
+          <div class="meta-row"><span>Tools</span><strong>PID control, Python, sensing, laser cutting, 3D printing, Onshape</strong></div>
+          <div class="meta-row"><span>Outcome</span><strong>Balanced for 2+ minutes</strong></div>
+        </aside>
+      </section>
+
+      <section class="container case-layout">
+        <nav class="case-nav" aria-label="Project sections">
+          <a href="#overview">Overview</a>
+          <a href="#approach">Approach</a>
+          <a href="#media">Photos + diagrams</a>
+          <a href="#code">Code snippet</a>
+          <a href="#videos">Videos</a>
+          <a href="#reports">Reports</a>
+        </nav>
+
+        <div class="case-content">
+          <article class="case-section" id="overview">
+            <span class="eyebrow">01 · Overview</span>
+            <h2>Keeping a ball-bot stable under real-world constraints.</h2>
+            <p>
+              This project required mechanical, thermal, and electrical modeling to keep the ball-bot within given
+              constraints. I used rapid prototyping techniques, including CO2 laser cutting and 3D printing, to create
+              the chassis and motor mounts.
+            </p>
+            <p>
+              The control system used real-time feedback and a Python PID controller to keep the robot balanced. The
+              multidisciplinary nature of the project expanded my systems thinking and pushed me to connect software,
+              sensing, and hardware decisions.
+            </p>
+          </article>
+
+          <article class="case-section" id="approach">
+            <span class="eyebrow">02 · Technical approach</span>
+            <h2>Prototype the body, close the loop, then tune the behavior.</h2>
+            <div class="split">
+              <div class="callout">
+                <strong>Problem</strong>
+                <p>
+                  Allow the Ballbot to maintain balance on a ball while navigating through a remote controller.
+                </p>
+              </div>
+              <div class="callout">
+                <strong>Control strategy</strong>
+                <p>
+                  Filter roll and pitch sensor data, compute balance error, apply a deadband, then update integral and
+                  derivative terms with anti-windup limits.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-section" id="media">
+            <span class="eyebrow">03 · Photos + diagrams</span>
+            <h2>Mechanical layout and system architecture.</h2>
+            <div class="gallery">
+              <figure class="media-frame wide">
+                <img
+                  src="../assets/images/ballbot-cover-ai-enhanced.png"
+                  alt="Enhanced photo of the Ballbot prototype balancing on a basketball"
+                  width="1024"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Photo of Ballbot self-balancing on a basketball while facing environmental disturbances.</figcaption>
+              </figure>
+              <figure class="media-frame wide">
+                <img
+                  src="../assets/images/ballbot-cad.png"
+                  alt="CAD rendering showing Ballbot chassis plates, supports, electronics, and omni wheel"
+                  width="1466"
+                  height="1012"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>CAD model showing the stacked chassis layout and hardware placement.</figcaption>
+              </figure>
+              <figure class="media-frame wide">
+                <img
+                  src="../assets/images/ballbot-control-architecture.svg"
+                  alt="Block diagram of Ballbot controller architecture from Bluetooth controller to Raspberry Pi Pico outputs"
+                  width="1600"
+                  height="360"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Control architecture connecting joystick input, Raspberry Pi steering logic, sensor feedback, PWM, and motor control.</figcaption>
+              </figure>
+              <div class="video-placeholder">
+                <div>
+                  <span class="play-mark" aria-hidden="true">＋</span>
+                  <p>Placeholder for one additional Ballbot photo or diagram.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-section" id="code">
+            <span class="eyebrow">04 · Code snippet</span>
+            <h2>PID balance error calculations.</h2>
+            <p>
+              This snippet shows the controller path from filtered state estimation to deadband handling and derivative
+              calculation.
+            </p>
+            <div class="code-panel">
+              <div class="code-toolbar"><span>controller.py</span><span>Python · PID loop</span></div>
+              <pre><code><span class="comment"># Low-pass filtering to roll and pitch</span>
+theta_x_filt = alpha * theta_x + (1 - alpha) * theta_x_filt
+theta_y_filt = alpha * theta_y + (1 - alpha) * theta_y_filt
+
+<span class="comment"># Use filtered states for control</span>
+theta_x_ctrl = theta_x_filt
+theta_y_ctrl = theta_y_filt
+
+<span class="comment"># Balance error</span>
+error_x = desired_theta - theta_x_ctrl
+error_y = desired_theta - theta_y_ctrl
+
+<span class="comment"># Controller deadband</span>
+error_x = func_deadzone(error_x, <span class="constant">ERROR_DEADBAND</span>)
+error_y = func_deadzone(error_y, <span class="constant">ERROR_DEADBAND</span>)
+
+<span class="comment"># Integral with anti-windup</span>
+integral_x += error_x * <span class="constant">DT</span>
+integral_y += error_y * <span class="constant">DT</span>
+integral_x = func_clip(integral_x, -<span class="constant">INTEGRAL_MAX</span>, <span class="constant">INTEGRAL_MAX</span>)
+integral_y = func_clip(integral_y, -<span class="constant">INTEGRAL_MAX</span>, <span class="constant">INTEGRAL_MAX</span>)
+
+<span class="comment"># Derivative</span>
+derivative_x = (error_x - prev_error_x) / <span class="constant">DT</span>
+derivative_y = (error_y - prev_error_y) / <span class="constant">DT</span></code></pre>
+            </div>
+          </article>
+
+          <article class="case-section" id="videos">
+            <span class="eyebrow">05 · Videos</span>
+            <h2>Demo video slots are ready.</h2>
+            <div class="video-grid">
+              <div class="video-placeholder">
+                <div>
+                  <span class="play-mark" aria-hidden="true">▶</span>
+                  <p>Upload or link a balancing demo video here.</p>
+                </div>
+              </div>
+              <div class="video-placeholder">
+                <div>
+                  <span class="play-mark" aria-hidden="true">▶</span>
+                  <p>Upload or link a controls/tuning walkthrough here.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-section" id="reports">
+            <span class="eyebrow">06 · Reports</span>
+            <h2>Documentation and project files.</h2>
+            <div class="report-grid">
+              <div class="report-card">
+                <h3>Ballbot report</h3>
+                <p>Google Doc report link from the project planning file.</p>
+                <a
+                  class="button button-secondary"
+                  href="https://docs.google.com/document/d/1qgX4NlNa8jGUAAXRf7Jbf3NqZIeP_G6Xsi2c7W8MoPc/edit?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Open document</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <a class="next-project" href="heliophysics.html">
+            <span>Next project</span>
+            <strong>Heliophysics Research Team</strong>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>© 2026 Zoe Fisch. Portfolio preview draft.</p>
+        <p><a href="../index.html">Home</a></p>
+      </div>
+    </footer>
+  <script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="transform:translate(-${scrollX}px,-${scrollY}px);transform-origin:top left">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+</script></body>
+</html>

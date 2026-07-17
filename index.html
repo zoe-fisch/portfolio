@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zoe Fisch | Robotics Engineering Portfolio</title>
+    <meta
+      name="description"
+      content="Engineering portfolio for Zoe Fisch, a University of Michigan robotics engineer focused on autonomy and space exploration."
+    />
+    <meta property="og:title" content="Zoe Fisch | Robotics Engineering Portfolio" />
+    <meta
+      property="og:description"
+      content="Robotics, autonomy, heliophysics, and engineering systems projects by Zoe Fisch."
+    />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Zoe Fisch home">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="8" y="10" width="32" height="22" rx="3" stroke="currentColor" stroke-width="3" />
+            <path d="M18 39H30" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M24 32V39" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M14 16H34" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.55" />
+          </svg>
+          <span>Zoe Fisch</span>
+        </a>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a class="mobile-keep" href="mailto:zoefisch@umich.edu">Contact</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme"></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="container hero" aria-labelledby="intro-title">
+        <div>
+          <span class="eyebrow">Robotics + Space Systems</span>
+          <h1 id="intro-title">Zoe Fisch</h1>
+          <p class="hero-copy">
+            I’m Zoe Fisch, a Robotics Engineering student at the University of Michigan with a Business minor,
+            focused on autonomy, feedback control, and space exploration systems.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View projects</a>
+            <a
+              class="button button-secondary"
+              href="https://docs.google.com/document/d/1fLpJGorSP94dtDHFleQWH_bOiAue0zPcthPKu_QLEcY/edit?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              >Resume</a
+            >
+          </div>
+        </div>
+
+        <figure class="hero-photo" aria-label="Portrait of Zoe Fisch" data-tilt>
+          <img
+            src="assets/images/zoe-headshot.jpg"
+            alt="Portrait of Zoe Fisch"
+            width="1080"
+            height="1613"
+            decoding="async"
+          />
+        </figure>
+      </section>
+
+      <section class="container section" id="projects" aria-labelledby="projects-title">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Selected work</span>
+            <h2 id="projects-title">Project pages with code, media, and technical reports.</h2>
+          </div>
+          <p>
+            Each project opens into a dedicated case-study page. The current version is seeded from the planning
+            PDF, with placeholders ready for more videos, photos, and files.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card portrait" href="projects/ballbot.html" data-tilt>
+            <img
+              src="assets/images/ballbot-cover-ai-enhanced.png"
+              alt="Enhanced photo of the Ballbot prototype balancing on a basketball"
+              width="1024"
+              height="1365"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="project-card-content">
+              <div class="tag-row">
+                <span class="tag">PID Control</span>
+                <span class="tag">Python</span>
+                <span class="tag">Rapid Prototyping</span>
+              </div>
+              <h3>Ballbot</h3>
+              <p>A feedback-controlled robot that balances on a basketball and maintains stability for 2+ minutes.</p>
+            </div>
+          </a>
+
+          <a class="project-card medium" href="projects/heliophysics.html" data-tilt>
+            <img
+              src="assets/images/heliophysics-cover.png"
+              alt="Solar eruption visualization with SunRISE spacecraft formation and Earth"
+              width="1094"
+              height="606"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="project-card-content">
+              <div class="tag-row">
+                <span class="tag">Python</span>
+                <span class="tag">Data Science</span>
+              </div>
+              <h3>Heliophysics Research Team</h3>
+              <p>Solar radio burst preprocessing for NASA’s SunRISE mission pipelines.</p>
+            </div>
+          </a>
+
+          <a class="project-card medium" href="projects/underwater-rov.html" data-tilt>
+            <img
+              src="assets/images/rov-underwater-test.jpg"
+              alt="Underwater ROV prototype being tested in a water tank"
+              width="964"
+              height="1148"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="project-card-content">
+              <div class="tag-row">
+                <span class="tag">Arduino</span>
+                <span class="tag">CAD</span>
+                <span class="tag">Rapid Prototyping</span>
+              </div>
+              <h3>Underwater ROV</h3>
+              <p>Remotely operated underwater vehicle used for wind farm riser inspection in Lake Michigan.</p>
+            </div>
+          </a>
+
+          <a class="project-card medium" href="projects/new-project.html" data-tilt>
+            <img
+              src="assets/images/medbot-robot-design.png"
+              alt="Updated MedBot robot design with labeled hardware features"
+              width="1634"
+              height="794"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="project-card-content">
+              <div class="tag-row">
+                <span class="tag">Usability Testing</span>
+                <span class="tag">UI Prototyping</span>
+                <span class="tag">CAD</span>
+              </div>
+              <h3>MedBot</h3>
+              <p>Human-centered home medical robot concept shaped through usability testing and interface design.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>© 2026 Zoe Fisch. Portfolio preview draft.</p>
+        <p>Robotics · Autonomy · Space Exploration</p>
+      </div>
+    </footer>
+  </body>
+</html>

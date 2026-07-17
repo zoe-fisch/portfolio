@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 360" role="img" aria-labelledby="title desc">
+  <title id="title">Ballbot controller architecture</title>
+  <desc id="desc">Block diagram showing Bluetooth controller input feeding Raspberry Pi control, serial communication, Raspberry Pi Pico control, and I2C and PWM outputs.</desc>
+  <defs>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0b1418" flood-opacity="0.18"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f252d"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="360" rx="28" fill="#f7f2e8"/>
+  <g filter="url(#soft-shadow)">
+    <rect x="28" y="92" width="250" height="168" rx="14" fill="#dcebf8" stroke="#1f252d" stroke-width="6"/>
+    <rect x="322" y="92" width="250" height="168" rx="14" fill="#dcebf8" stroke="#1f252d" stroke-width="6"/>
+    <rect x="616" y="92" width="250" height="168" rx="14" fill="#dcebf8" stroke="#1f252d" stroke-width="6"/>
+    <rect x="910" y="92" width="250" height="168" rx="14" fill="#dcebf8" stroke="#1f252d" stroke-width="6"/>
+    <rect x="1206" y="54" width="170" height="64" rx="8" fill="#dcebf8" stroke="#1f252d" stroke-width="6"/>
+    <rect x="1412" y="54" width="160" height="64" rx="8" fill="#dcebf8" stroke="#1f252d" stroke-width="6"/>
+    <rect x="1206" y="234" width="170" height="64" rx="8" fill="#dcebf8" stroke="#1f252d" stroke-width="6"/>
+    <rect x="1412" y="234" width="160" height="64" rx="8" fill="#dcebf8" stroke="#1f252d" stroke-width="6"/>
+  </g>
+  <g fill="#111820" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="153" y="146" font-size="28" font-weight="700">
+      <tspan x="153">Bluetooth</tspan>
+      <tspan x="153" dy="34">Controller</tspan>
+    </text>
+    <text x="153" y="218" font-size="22">
+      <tspan x="153">(Joystick +</tspan>
+      <tspan x="153" dy="28">Triggers)</tspan>
+    </text>
+    <text x="447" y="146" font-size="28" font-weight="700">
+      <tspan x="447">Raspberry Pi</tspan>
+    </text>
+    <text x="447" y="188" font-size="22">
+      <tspan x="447">(PID +</tspan>
+      <tspan x="447" dy="28">Steering Control)</tspan>
+    </text>
+    <text x="741" y="163" font-size="26" font-weight="700">
+      <tspan x="741">Serial</tspan>
+      <tspan x="741" dy="34">Communication</tspan>
+    </text>
+    <text x="1035" y="139" font-size="27" font-weight="700">
+      <tspan x="1035">Raspberry</tspan>
+      <tspan x="1035" dy="34">Pi Pico</tspan>
+    </text>
+    <text x="1035" y="212" font-size="21">
+      <tspan x="1035">(Sensor + Motor</tspan>
+      <tspan x="1035" dy="27">Control)</tspan>
+    </text>
+    <text x="1291" y="96" font-size="24" font-weight="700">I2C</text>
+    <text x="1492" y="78" font-size="20" font-weight="700">
+      <tspan x="1492">IMU +</tspan>
+      <tspan x="1492" dy="25">Encoders</tspan>
+    </text>
+    <text x="1291" y="276" font-size="24" font-weight="700">PWM</text>
+    <text x="1492" y="258" font-size="20" font-weight="700">
+      <tspan x="1492">MBot +</tspan>
+      <tspan x="1492" dy="25">Motors</tspan>
+    </text>
+  </g>
+  <g fill="none" stroke="#1f252d" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M278 176 H316"/>
+    <path d="M572 176 H610"/>
+    <path d="M866 176 H904"/>
+    <path d="M1160 145 C1188 145 1184 86 1200 86"/>
+    <path d="M1376 86 H1406"/>
+    <path d="M1160 207 C1188 207 1184 266 1200 266"/>
+    <path d="M1376 266 H1406"/>
+  </g>
+</svg>
