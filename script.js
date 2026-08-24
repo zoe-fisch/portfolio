@@ -39,3 +39,46 @@
     });
   });
 })();
+
+(function () {
+  const controls = document.querySelector('[data-video-controls]');
+  const video = controls?.previousElementSibling?.querySelector('video');
+  if (!controls || !video) return;
+
+  const toggle = controls.querySelector('[data-video-toggle]');
+  const progress = controls.querySelector('[data-video-progress]');
+  const current = controls.querySelector('[data-video-current]');
+  const duration = controls.querySelector('[data-video-duration]');
+
+  const formatTime = (seconds) => {
+    if (!Number.isFinite(seconds)) return '0:00';
+    const minutes = Math.floor(seconds / 60);
+    return `${minutes}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
+  };
+
+  const renderPlayback = () => {
+    const isPlaying = !video.paused && !video.ended;
+    toggle.textContent = isPlaying ? '❚❚' : '▶';
+    toggle.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
+  };
+
+  const renderTime = () => {
+    current.textContent = formatTime(video.currentTime);
+    duration.textContent = formatTime(video.duration);
+    progress.value = video.duration ? String((video.currentTime / video.duration) * 100) : '0';
+  };
+
+  toggle.addEventListener('click', () => {
+    if (video.paused || video.ended) video.play();
+    else video.pause();
+  });
+  progress.addEventListener('input', () => {
+    if (video.duration) video.currentTime = (Number(progress.value) / 100) * video.duration;
+  });
+  video.addEventListener('loadedmetadata', renderTime);
+  video.addEventListener('timeupdate', renderTime);
+  video.addEventListener('play', renderPlayback);
+  video.addEventListener('pause', renderPlayback);
+  video.addEventListener('ended', renderPlayback);
+  renderPlayback();
+})();

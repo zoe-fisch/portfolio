@@ -45,9 +45,6 @@
         <div>
           <span class="eyebrow">Project page · Space research</span>
           <h1>Heliophysics Research Team</h1>
-          <p>
-            Developing solar burst preprocessing methods for NASA SunRISE detection and classification pipelines.
-          </p>
           <div class="button-row">
             <a class="button button-primary" href="https://github.com/Kasper-Heliophysics-MDP" target="_blank" rel="noreferrer">Open GitHub</a>
             <a class="button button-secondary" href="../index.html#projects">Back to projects</a>
@@ -73,20 +70,17 @@
         <div class="case-content">
           <article class="case-section" id="overview">
             <span class="eyebrow">01 · Overview</span>
-            <h2>Cleaning solar radio burst spectrograms for downstream machine learning.</h2>
+            <h2>Preprocessing pipeline to clean solar radio burst spectrograms for downstream ML classification.</h2>
             <p>
-              I worked on NASA SunRISE preprocessing pipelines that clean solar burst spectrograms for downstream
-              machine learning.
-            </p>
-            <p>
-              Our Frequency-Persistent Background Suppression method improves signal-to-noise ratio while preserving
-              burst structure.
+              I serve as the Software Lead for UM's Heliophysics Research Team, working to create a parallel data
+              processing to NASA's SunRISE Mission. I manage a team of 15+ engineers working on a you-only-look-once
+              machine learning model as well as a generative adversarial network (GAN).
             </p>
           </article>
 
           <article class="case-section" id="approach">
             <span class="eyebrow">02 · Technical approach</span>
-            <h2>Separate persistent background noise from burst-relevant structure.</h2>
+            <h2>Separating background noise from relevant burst structure.</h2>
             <div class="split">
               <div class="callout">
                 <strong>Problem</strong>
@@ -134,11 +128,10 @@
 
           <article class="case-section" id="code">
             <span class="eyebrow">04 · Code slot</span>
-            <h2>Persistent frequency-band analysis for spectrogram preprocessing.</h2>
+            <h2>New filtering method created: Frequency-Persistent Band Suppression</h2>
             <p>
-              This function identifies persistent frequency bands by filtering out burst-heavy columns, estimating local
-              background structure, and returning per-row band levels, weights, and valid columns for downstream
-              preprocessing.
+              The function below identifies persistent horizontal noise bands and removes them while preserving the
+              structure of the actual burst.
             </p>
             <div class="code-panel">
               <div class="code-toolbar"><span>persistent_bands.py</span><span>Python · spectrogram preprocessing</span></div>
@@ -209,7 +202,7 @@
 
           <article class="case-section" id="reports">
             <span class="eyebrow">05 · Reports</span>
-            <h2>Research artifacts and public links.</h2>
+            <h2>Find all our code on GitHub!</h2>
             <div class="report-grid">
               <div class="report-card">
                 <h3>GitHub organization</h3>

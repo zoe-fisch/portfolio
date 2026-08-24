@@ -760,6 +760,58 @@ h3 {
   background: var(--color-code);
 }
 
+.portrait-video-frame {
+  width: min(100%, 440px);
+  margin-inline: auto;
+}
+
+.rotated-video {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--color-code);
+}
+
+.rotated-video video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.7778%;
+  max-width: none;
+  max-height: none;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.horizontal-video-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  color: #ffffff;
+  background: var(--color-code);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.horizontal-video-controls button {
+  display: grid;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid color-mix(in oklab, #ffffff, transparent 65%);
+  border-radius: 50%;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.horizontal-video-controls input {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--color-accent);
+}
+
 .media-frame figcaption {
   padding: var(--space-4);
   color: var(--color-text-muted);

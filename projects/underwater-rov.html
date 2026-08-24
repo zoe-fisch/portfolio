@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../style.css" />
-    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="../style.css?v=3" />
+    <script src="../script.js?v=2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -67,7 +67,7 @@
         </div>
         <aside class="project-meta" aria-label="Project metadata">
           <div class="meta-row"><span>Role</span><strong>Lead Software Engineer</strong></div>
-          <div class="meta-row"><span>Mode</span><strong>Team project</strong></div>
+          <div class="meta-row"><span>Mode</span><strong>Class Project</strong></div>
           <div class="meta-row"><span>Tools</span><strong>Arduino, soldering, 3D printing, CAD</strong></div>
           <div class="meta-row"><span>Outcome</span><strong>Identified 80% of damage while staying neutrally buoyant</strong></div>
         </aside>
@@ -141,7 +141,7 @@
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption>Bench assembly showing the PVC frame, wiring, electronics, and thruster layout.</figcaption>
+                <figcaption>Lab station including ROV frame and thrusters as we installed electronics payload.</figcaption>
               </figure>
               <figure class="media-frame">
                 <img
@@ -152,7 +152,7 @@
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption>CAD model used to plan the ROV frame, thruster placement, and internal component layout.</figcaption>
+                <figcaption>CAD model used to design ROV and evaluate buoyancy using OnShape analysis tools.</figcaption>
               </figure>
             </div>
           </article>
@@ -160,29 +160,31 @@
           <article class="case-section" id="video">
             <span class="eyebrow">04 · Demo video</span>
             <h2>Tank test footage of the ROV prototype.</h2>
-            <figure class="media-frame video-frame">
-              <video controls preload="metadata" poster="../assets/images/rov-underwater-test.jpg">
-                <source src="../assets/videos/underwater-rov-demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+            <figure class="media-frame video-frame portrait-video-frame">
+              <div class="rotated-video">
+                <video preload="auto" playsinline>
+                  <source src="../assets/videos/underwater-rov-demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="horizontal-video-controls" data-video-controls>
+                <button type="button" data-video-toggle aria-label="Play video">▶</button>
+                <span data-video-current>0:00</span>
+                <input data-video-progress type="range" min="0" max="100" value="0" step="0.1" aria-label="Video progress" />
+                <span data-video-duration>0:00</span>
+              </div>
               <figcaption>Short tank-test video showing the underwater ROV prototype during operation.</figcaption>
             </figure>
           </article>
 
           <article class="case-section" id="results">
             <span class="eyebrow">05 · Results</span>
-            <h2>The prototype identified most target damage while maintaining buoyancy goals.</h2>
-            <div class="split">
+            <h2>Prototype accurately detected cracks in windfarm risers during testing.</h2>
+            <div>
               <div class="callout">
                 <strong>Outcome</strong>
                 <p>
                   The ROV correctly identified 80% of damage while staying stable and neutrally buoyant during testing.
-                </p>
-              </div>
-              <div class="callout">
-                <strong>Learning</strong>
-                <p>
-                  This project strengthened my teamwork across different majors, backgrounds, and experience levels.
                 </p>
               </div>
             </div>

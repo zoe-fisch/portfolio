@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LSP-REM Lunar Mission | Zoe Fisch</title>
+    <meta
+      name="description"
+      content="Thermal engineering for the LSP-REM lunar mission concept, including thermal calculations, subsystem architecture, heat-flow analysis, FMEA, and spacecraft systems integration."
+    />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="../index.html" aria-label="Zoe Fisch home">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="8" y="10" width="32" height="22" rx="3" stroke="currentColor" stroke-width="3" />
+            <path d="M18 39H30" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M24 32V39" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M14 16H34" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.55" />
+          </svg>
+          <span>Zoe Fisch</span>
+        </a>
+        <div class="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a class="mobile-keep" href="mailto:zoefisch@umich.edu">Contact</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme"></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="container page-hero">
+        <div>
+          <span class="eyebrow">Academy program · Lunar systems engineering</span>
+          <h1>LSP-REM Lunar Mission</h1>
+          <p>
+            Thermal-control design for two autonomous lunar nodes operating in illuminated and permanently shadowed
+            regions near the Moon's South Pole.
+          </p>
+          <div class="button-row">
+            <a
+              class="button button-primary"
+              href="https://www.lspace.asu.edu/mission-concept-academy"
+              target="_blank"
+              rel="noreferrer"
+              >NASA program</a
+            >
+            <a class="button button-secondary" href="../index.html#projects">Back to projects</a>
+          </div>
+        </div>
+        <aside class="project-meta" aria-label="Project metadata">
+          <div class="meta-row"><span>Role</span><strong>Thermal Engineer</strong></div>
+          <div class="meta-row"><span>Mode</span><strong>NASA Mission Concept Academy · Summer 2026</strong></div>
+          <div class="meta-row"><span>Tools</span><strong>Hand calculations, thermal analysis, FMEA, N² analysis, NASA budgeting tools</strong></div>
+          <div class="meta-row"><span>Outcome</span><strong>Designed thermal-control architectures for illuminated and PSR lunar nodes</strong></div>
+        </aside>
+      </section>
+
+      <section class="container case-layout">
+        <nav class="case-nav" aria-label="Project sections">
+          <a href="#overview">Overview</a>
+          <a href="#approach">Thermal design</a>
+          <a href="#media">Diagrams</a>
+          <a href="#systems">Systems engineering</a>
+          <a href="#program">Program</a>
+        </nav>
+
+        <div class="case-content">
+          <article class="case-section" id="overview">
+            <span class="eyebrow">01 · Overview</span>
+            <h2>Designing a lunar mission to compare radically different South Pole environments.</h2>
+            <p>
+              LSP-REM is a preliminary mission concept developed by Team Crater Crew through NASA's Mission Concept
+              Academy. Two autonomous lunar nodes would deploy near one another: Node A at an illuminated highland site
+              and Node B inside a permanently shadowed region.
+            </p>
+            <p>
+              Identical instrument suites would measure radiation, dust, illumination, and surface temperature at both
+              sites. Comparing their data would help separate environmental effects caused by illumination and extreme
+              temperature, supporting safer future lunar exploration and surface-system design.
+            </p>
+          </article>
+
+          <article class="case-section" id="approach">
+            <span class="eyebrow">02 · Thermal design</span>
+            <h2>Maintaining spacecraft survival across illuminated terrain and a permanently shadowed region.</h2>
+            <p>
+              As the team's Thermal Engineer, I performed thermal calculations and analysis, developed the thermal-control
+              subsystem architecture, and created heat-flow diagrams showing how each node would retain and distribute heat.
+            </p>
+            <div class="split">
+              <div class="callout">
+                <strong>Node A · Illuminated site</strong>
+                <p>
+                  Combined passive insulation and heat distribution with a battery-powered survival heater governed by
+                  resistance temperature detector measurements.
+                </p>
+              </div>
+              <div class="callout">
+                <strong>Node B · Permanently shadowed region</strong>
+                <p>
+                  Used a radioisotope heater unit, multilayer insulation, heat spreaders, and thermal straps to protect
+                  batteries, processors, power electronics, and navigation hardware in extreme cold.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-section" id="media">
+            <span class="eyebrow">03 · Diagrams</span>
+            <h2>Mapping heat flow and interfaces within the Node B thermal subsystem.</h2>
+            <div class="gallery">
+              <figure class="media-frame wide">
+                <img
+                  src="../assets/images/lsp-rem-node-b-heat-flow.png"
+                  alt="Node B heat-flow diagram showing the radioisotope heater unit, electronics, insulation, and heat transfer to the lunar environment"
+                  width="2021"
+                  height="1152"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Node B heat-flow model for the permanently shadowed lunar environment.</figcaption>
+              </figure>
+              <figure class="media-frame wide">
+                <img
+                  src="../assets/images/lsp-rem-thermal-subsystem-connections.png"
+                  alt="Thermal subsystem connection diagram linking the radioisotope heater unit, heat spreaders, temperature sensors, processor, power electronics, and battery"
+                  width="2002"
+                  height="1006"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Connections between heat-generation, distribution, monitoring, and spacecraft subsystems.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="case-section" id="systems">
+            <span class="eyebrow">04 · Systems engineering</span>
+            <h2>Carrying thermal decisions through risk, interfaces, cost, and mission planning.</h2>
+            <div class="split">
+              <div class="callout">
+                <strong>Risk + interfaces</strong>
+                <p>
+                  Used FMEA and N² analysis to evaluate thermal failure modes and define connections with power,
+                  command-and-data handling, payload, and mechanical subsystems.
+                </p>
+              </div>
+              <div class="callout">
+                <strong>Programmatics</strong>
+                <p>
+                  Contributed to project management and used NASA budgeting tools to connect component selection and
+                  thermal architecture with mission cost and schedule constraints.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-section" id="program">
+            <span class="eyebrow">05 · Program</span>
+            <h2>NASA L'SPACE Mission Concept Academy.</h2>
+            <p>
+              The academy provides hands-on mission-development training and guides student teams through the creation
+              of a preliminary mission concept and design review.
+            </p>
+            <a
+              class="button button-primary"
+              href="https://www.lspace.asu.edu/mission-concept-academy"
+              target="_blank"
+              rel="noreferrer"
+              >Learn about the academy</a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>© 2026 Zoe Fisch. Portfolio preview draft.</p>
+        <p><a href="../index.html">Home</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
