@@ -457,6 +457,8 @@ h3 {
   height: 100%;
   object-fit: cover;
   object-position: center 24%;
+  transform: scale(1.15);
+  transform-origin: center 48%;
 }
 
 .section {
