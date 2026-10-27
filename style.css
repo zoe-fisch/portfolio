@@ -1041,3 +1041,12 @@ code .keyword {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Crop the original video frame around the MBot for its homepage thumbnail. */
+.click-to-drive-cover {
+  min-height: 320px;
+  background-image: url("assets/images/click-to-drive-video-frame.png");
+  background-size: 250% auto;
+  background-position: 50% 59%;
+  background-repeat: no-repeat;
+}
