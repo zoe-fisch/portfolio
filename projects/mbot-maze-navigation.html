@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Autonomous Maze Navigation with MBot | Zoe Fisch</title>
+    <meta
+      name="description"
+      content="University of Michigan ROB 330 project by Zoe Fisch and Kate Cooper on ROS 2 path planning, autonomous exploration, and localization with MBot."
+    />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css?v=3" />
+    <script src="../script.js?v=2" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="../index.html" aria-label="Zoe Fisch home">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="8" y="10" width="32" height="22" rx="3" stroke="currentColor" stroke-width="3" />
+            <path d="M18 39H30" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M24 32V39" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M14 16H34" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.55" />
+          </svg>
+          <span>Zoe Fisch</span>
+        </a>
+        <div class="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a class="mobile-keep" href="mailto:zoefisch@umich.edu">Contact</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme"></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="container page-hero">
+        <div>
+          <span class="eyebrow">Project page · Robotics</span>
+          <h1>Autonomous Maze Navigation with MBot</h1>
+          <p>A ROS 2 navigation system for a LiDAR-equipped MBot that plans routes and explores a maze autonomously.</p>
+          <div class="button-row">
+            <a class="button button-primary" href="#demos">Watch the demos</a>
+            <a class="button button-secondary" href="../index.html#projects">Back to projects</a>
+          </div>
+        </div>
+        <aside class="project-meta" aria-label="Project metadata">
+          <div class="meta-row"><span>Role</span><strong>Robotics Software Developer</strong></div>
+          <div class="meta-row"><span>Mode</span><strong>Class Project</strong></div>
+          <div class="meta-row"><span>Tools</span><strong>C++, ROS 2, RViz, LiDAR, occupancy grids, A*, Theta*, particle filters</strong></div>
+          <div class="meta-row"><span>Outcome</span><strong>Validated path planning and autonomous exploration on a physical MBot</strong></div>
+        </aside>
+      </section>
+
+      <section class="container case-layout">
+        <nav class="case-nav" aria-label="Project sections">
+          <a href="#overview">Overview</a>
+          <a href="#approach">Approach</a>
+          <a href="#media">RViz visualization</a>
+          <a href="#demos">Demos</a>
+          <a href="#results">Results</a>
+        </nav>
+
+        <div class="case-content">
+          <article class="case-section" id="overview">
+            <span class="eyebrow">01 · Overview</span>
+            <h2>Plan routes through a maze and explore unmapped space.</h2>
+            <p>Kate Cooper and I built a ROS 2 navigation system for a LiDAR-equipped MBot for the Planning and Exploration checkpoint in University of Michigan’s ROB 330 course in Fall 2026.</p>
+          </article>
+
+          <article class="case-section" id="approach">
+            <span class="eyebrow">02 · Technical approach</span>
+            <h2>Use wall clearance to plan routes and frontiers to choose goals.</h2>
+            <p>We implemented an A* planner that used an obstacle-distance grid to keep the robot clear of walls, then simplified the planned route by removing unnecessary waypoints when a straight segment had enough clearance. We implemented Theta* to compare how line-of-sight shortcuts during search change the route.</p>
+            <p>We also implemented frontier-based exploration so the MBot could choose where to go as it built a map. The robot grouped boundaries between known free space and unexplored areas, selected a nearby frontier as its next goal, and sent the planned waypoints to the motion controller.</p>
+            <p>We prototyped unknown-start localization by distributing particles across free space in a known map.</p>
+          </article>
+
+          <article class="case-section" id="media">
+            <span class="eyebrow">03 · RViz visualization</span>
+            <h2>Inspect the occupancy grid during exploration.</h2>
+            <figure class="media-frame">
+              <img
+                src="../assets/images/mbot-rviz-exploration-retouched.jpg"
+                alt="RViz occupancy grid with the MBot pose, mapped walls, and a green route segment"
+                width="1320"
+                height="1191"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>RViz view of the occupancy grid and robot pose during autonomous exploration. Glare reduced with AI retouching. <a href="../assets/images/mbot-rviz-exploration.jpg">View original</a>.</figcaption>
+            </figure>
+          </article>
+
+          <article class="case-section" id="demos">
+            <span class="eyebrow">04 · Demos</span>
+            <h2>Maze runs</h2>
+            <div class="video-grid">
+              <figure class="media-frame video-frame">
+                <video controls playsinline preload="none" width="720" height="1280" poster="../assets/images/mbot-path-planning.jpg" aria-label="Physical MBot path-planning demo">
+                  <source src="../assets/videos/mbot-path-planning.mp4" type="video/mp4" />
+                  <a href="../assets/videos/mbot-path-planning.mp4">Download the path-planning demo</a>.
+                </video>
+                <figcaption>Path-planning test on the physical MBot, with the planned route shown in RViz at the start.</figcaption>
+              </figure>
+              <figure class="media-frame video-frame">
+                <video controls playsinline preload="none" width="720" height="1280" poster="../assets/images/mbot-autonomous-exploration.jpg" aria-label="Physical MBot autonomous exploration demo">
+                  <source src="../assets/videos/mbot-autonomous-exploration.mp4" type="video/mp4" />
+                  <a href="../assets/videos/mbot-autonomous-exploration.mp4">Download the autonomous exploration demo</a>.
+                </video>
+                <figcaption>The MBot explores the maze autonomously using frontier goals.</figcaption>
+              </figure>
+            </div>
+          </article>
+          <article class="case-section" id="results">
+            <span class="eyebrow">05 · Results</span>
+            <h2>Test path planning and autonomous exploration on the physical MBot.</h2>
+            <p>We tested the planner in RViz and ran it on the physical robot in a maze mapped with LiDAR, capturing the run in a ROS 2 bag. We also demonstrated frontier-based exploration on the physical MBot.</p>
+          </article>
+
+          <a class="next-project" href="new-project.html">
+            <span>Next project</span>
+            <strong>Orbion Space Technology</strong>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>© 2026 Zoe Fisch. Portfolio preview draft.</p>
+        <p><a href="../index.html">Home</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

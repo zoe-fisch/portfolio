@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RX200 Robot Arm Kinematics | Zoe Fisch</title>
+    <meta
+      name="description"
+      content="ROB 320 project by Zoe Fisch on forward and inverse kinematics for an RX200 robot arm using C++, ROS 2, and URDF."
+    />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css?v=3" />
+    <script src="../script.js?v=2" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="../index.html" aria-label="Zoe Fisch home">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="8" y="10" width="32" height="22" rx="3" stroke="currentColor" stroke-width="3" />
+            <path d="M18 39H30" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M24 32V39" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M14 16H34" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.55" />
+          </svg>
+          <span>Zoe Fisch</span>
+        </a>
+        <div class="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a class="mobile-keep" href="mailto:zoefisch@umich.edu">Contact</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme"></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="container page-hero">
+        <div>
+          <span class="eyebrow">Project page · Robotics</span>
+          <h1>RX200 Robot Arm Kinematics</h1>
+          <p>A C++ and ROS 2 package that maps between RX200 joint angles and gripper poses.</p>
+          <div class="button-row">
+            <a class="button button-secondary" href="../index.html#projects">Back to projects</a>
+          </div>
+        </div>
+        <aside class="project-meta" aria-label="Project metadata">
+          <div class="meta-row"><span>Role</span><strong>Robotics Software Developer</strong></div>
+          <div class="meta-row"><span>Mode</span><strong>Class Project · ROB 320</strong></div>
+          <div class="meta-row"><span>Tools</span><strong>C++, ROS 2, URDF, RX200, forward and inverse kinematics</strong></div>
+          <div class="meta-row"><span>Outcome</span><strong>Passed URDF, kinematic chain, forward kinematics, and both inverse kinematics solver tests</strong></div>
+        </aside>
+      </section>
+
+      <section class="container case-layout">
+        <nav class="case-nav" aria-label="Project sections">
+          <a href="#overview">Overview</a>
+          <a href="#approach">Approach</a>
+          <a href="#code">Code snippet</a>
+          <a href="#demos">Simulation and hardware</a>
+        </nav>
+
+        <div class="case-content">
+          <article class="case-section" id="overview">
+            <span class="eyebrow">01 · Overview</span>
+            <h2>Connect joint angles to gripper poses.</h2>
+            <p>For my ROB 320 kinematics project, I worked on a C++ and ROS 2 package for an RX200 robot arm. The package reads the robot’s URDF model and extracts the chain of joints from the base to the gripper.</p>
+          </article>
+
+          <article class="case-section" id="approach">
+            <span class="eyebrow">02 · Technical approach</span>
+            <h2>Solve for the gripper pose and the joint angles.</h2>
+            <p>Forward kinematics combines the joint transforms to calculate the gripper’s position and orientation. Inverse kinematics finds joint angles for a requested gripper pose.</p>
+            <p>To apply the kinematics to physical pick-and-place, I defined two Cartesian targets at different positions with the same gripper orientation.</p>
+          </article>
+
+          <article class="case-section" id="code">
+            <span class="eyebrow">03 · Code snippet</span>
+            <h2>Turn gripper pose error into joint-angle updates.</h2>
+            <p>The gradient-descent solver uses the Jacobian transpose to map position and orientation error into a joint-space direction. It scales each update by how the Jacobian predicts that direction will change the gripper pose, and accepts a converged solution only if the angles are within the arm’s joint limits.</p>
+            <div class="code-panel">
+              <div class="code-toolbar"><span>kinematics.cpp</span><span>C++ · Gradient-descent inverse kinematics</span></div>
+              <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="constant">0</span>; i &lt; max_iter; i++) {
+    <span class="keyword">auto</span> err = <span class="function">poseError</span>(chain, target_T, q);
+    <span class="keyword">if</span> (err.<span class="function">norm</span>() &lt; tol) {
+        <span class="keyword">if</span> (<span class="function">within_joint_limits</span>(chain, q)) <span class="keyword">return</span> q;
+        <span class="keyword">return</span> <span class="constant">std::nullopt</span>;
+    }
+
+    <span class="keyword">auto</span> J = <span class="function">jacobian</span>(chain, q);
+    <span class="keyword">const</span> <span class="type">Eigen::Matrix</span>&lt;<span class="keyword">double</span>, <span class="constant">5</span>, <span class="constant">1</span>&gt; g = J.<span class="function">transpose</span>() * err;
+    <span class="keyword">const</span> <span class="type">Eigen::Matrix</span>&lt;<span class="keyword">double</span>, <span class="constant">5</span>, <span class="constant">1</span>&gt; dq =
+        (err.<span class="function">dot</span>(J * g) / (J * g).<span class="function">squaredNorm</span>()) * g;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="constant">0</span>; i &lt; q.<span class="function">size</span>(); i++) {
+        q[i] += dq(i);
+    }
+}
+<span class="keyword">return</span> <span class="constant">std::nullopt</span>;</code></pre>
+            </div>
+          </article>
+
+          <article class="case-section" id="demos">
+            <span class="eyebrow">04 · Simulation and hardware</span>
+            <h2>See the simulated arm and the physical RX200.</h2>
+            <div class="video-grid">
+              <figure class="media-frame video-frame">
+                <video controls playsinline preload="none" width="540" height="960" poster="../assets/images/rx200-simulation.jpg" aria-label="RX200 Gazebo simulation footage">
+                  <source src="../assets/videos/rx200-simulation.mp4" type="video/mp4" />
+                  <a href="../assets/videos/rx200-simulation.mp4">Download the simulation clip</a>.
+                </video>
+                <figcaption>Gazebo footage showing the simulated gripper near the target block.</figcaption>
+              </figure>
+              <figure class="media-frame video-frame">
+                <video controls playsinline preload="none" width="540" height="960" poster="../assets/images/rx200-hardware.jpg" aria-label="Physical RX200 arm footage">
+                  <source src="../assets/videos/rx200-hardware.mp4" type="video/mp4" />
+                  <a href="../assets/videos/rx200-hardware.mp4">Download the hardware clip</a>.
+                </video>
+                <figcaption>The physical RX200 arm and gripper on the lab workcell.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <a class="next-project" href="mbot-maze-navigation.html">
+            <span>Next project</span>
+            <strong>Autonomous Maze Navigation with MBot</strong>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>© 2026 Zoe Fisch. Portfolio preview draft.</p>
+        <p><a href="../index.html">Home</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -917,6 +917,14 @@ code .keyword {
   color: #ffbc78;
 }
 
+code .type {
+  color: #7ee2ba;
+}
+
+code .function {
+  color: #d5b8ff;
+}
+
 .callout {
   padding: var(--space-6);
 }
@@ -1045,8 +1053,8 @@ code .keyword {
 /* Crop the original video frame around the MBot for its homepage thumbnail. */
 .click-to-drive-cover {
   min-height: 320px;
-  background-image: url("assets/images/click-to-drive-video-frame.png");
-  background-size: 250% auto;
+  background-image: url("assets/images/click-to-drive-video-frame-hd.png");
+  background-size: 220% auto;
   background-position: 50% 59%;
   background-repeat: no-repeat;
 }
